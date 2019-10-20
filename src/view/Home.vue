@@ -3,22 +3,42 @@
     <div>
       <circle-loading />
     </div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+    <div>
+      <bubble-loading />
+    </div>
+    <div>
+      <teacup-loading />
+    </div>
+    <div>
+      <play-button />
+    </div>
+    <div>
+      <progress-bar />
+    </div>
+    <div>
+      <floating-button />
+    </div>
   </div>
 </template>
 
 <script>
 import CircleLoading from '../components/CircleLoading.vue'
+import BubbleLoading from '../components/BubbleLoading.vue'
+import FloatingButton from '../components/FloatingButton.vue'
+import PlayButton from '../components/PlayButton.vue'
+import ProgressBar from '../components/ProgressBar.vue'
+import TeacupLoading from '../components/TeacupLoading.vue'
 export default {
   data () {
     return {}
   },
   components: {
-    CircleLoading
+    CircleLoading,
+    BubbleLoading,
+    FloatingButton,
+    PlayButton,
+    ProgressBar,
+    TeacupLoading
   }
 }
 </script>
