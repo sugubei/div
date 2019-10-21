@@ -1,27 +1,15 @@
-const fs = require('fs')
 const path = require('path')
-// 解析需要遍历的文件夹
-const filePath = path.resolve('../components')
+const files = require.context('@/components', false, /\.vue$/)
+// require.context 创建自己的模块上下文。三个参数， 1、要搜索的目录 2、是否要搜索子目录 3、以什么文件结尾的文件
 
-// 调用文件遍历方法
-fileDisplay(filePath)
-let components = []
-function fileDisplay (filePath) {
-  // 根据文件路径读取文件，返回列表
-  fs.readdir(filePath, function (err, files) {
-    if (err) {
-      console.warn(err)
-    } else {
-      // 遍历读取到的文件列表
-      const re = /\.vue$/
-      files.forEach(function (filename) {
-        if (re.test(filename)) {
-          console.log(filename)
-          components.push(filename.split(','))
-        }
-      })
-    }
-  })
-}
+const modules = {} // 文件集合
 
-console.log(components)
+files.keys().forEach(key => {
+  // files.keys() ['./BubbleLoading.vue', './xxx.vue', ....]
+  const name = path.basename(key, '.vue')
+  // name = 'BubbleLoading' 'xxx' 'Bubble'
+  // path.basename 返回path的最后一部分  两个参数  第一个 路径  第二个不跟则返回全名，比如 带 .vue 只返回 不带后缀名的字符串
+  modules[name] = files(key).default || files(key)
+})
+
+export default modules
