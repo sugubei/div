@@ -22,24 +22,25 @@
 </template>
 
 <script>
-import CircleLoading from '../components/CircleLoading.vue'
-import BubbleLoading from '../components/BubbleLoading.vue'
-import FloatingButton from '../components/FloatingButton.vue'
-import PlayButton from '../components/PlayButton.vue'
-import ProgressBar from '../components/ProgressBar.vue'
-import TeacupLoading from '../components/TeacupLoading.vue'
+// import CircleLoading from '../components/CircleLoading.vue'
+// import BubbleLoading from '../components/BubbleLoading.vue'
+// import FloatingButton from '../components/FloatingButton.vue'
+// import PlayButton from '../components/PlayButton.vue'
+// import ProgressBar from '../components/ProgressBar.vue'
+// import TeacupLoading from '../components/TeacupLoading.vue'
+import modules from '../components/index.js'
 export default {
   data () {
     return {}
   },
-  components: {
-    CircleLoading,
-    BubbleLoading,
-    FloatingButton,
-    PlayButton,
-    ProgressBar,
-    TeacupLoading
-  }
+  components: modules
+  // CircleLoading,
+  // BubbleLoading,
+  // FloatingButton,
+  // PlayButton,
+  // ProgressBar,
+  // TeacupLoading
+
 }
 </script>
 
